@@ -50,9 +50,9 @@ class Eleve(Person):
       return self._age == E._age and self._note == E._note
 
 class Employee(Person):
-    def __init__(self, name, age, salaire):  # استبدال السمات position و note بالسمة salaire
+    def __init__(self, name, age, salaire): 
         super().__init__(name, age)
-        self._salaire = salaire  # إضافة السمة salaire
+        self._salaire = salaire 
 
     def get_salaire(self):
         return self._salaire
