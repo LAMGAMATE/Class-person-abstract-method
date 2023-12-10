@@ -1,0 +1,76 @@
+from abc import ABC, abstractmethod
+class Person(ABC):
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+    
+    @abstractmethod
+    def __str__(self):
+        pass
+
+
+    @abstractmethod
+    def __eq__(self):
+        pass
+
+    def get_name(self):
+        return self._name
+
+    def set_name(self, new_name):
+        self._name = new_name
+
+    def get_age(self):
+        return self._age
+
+    def set_age(self, new_age):
+        self._age = new_age
+
+class Eleve(Person):
+    def __init__(self, name, age, Niveau, note):
+        super().__init__(name, age)
+        self._Niveau = Niveau
+        self._note = note
+
+ 
+
+    def get_note(self):
+        return self._note
+
+    def set_note(self, new_note):
+        self._note = new_note
+
+
+
+    def __str__(self):
+        return f'Name is:{self._name}\nage {self._age}\nNiveau is :{self._Niveau}\nNote is {self._note}.'
+
+
+
+   def __eq__(self,E):
+      return self._age == E._age and self._note == E._note
+
+class Employee(Person):
+    def __init__(self, name, age, salaire):  # استبدال السمات position و note بالسمة salaire
+        super().__init__(name, age)
+        self._salaire = salaire  # إضافة السمة salaire
+
+    def get_salaire(self):
+        return self._salaire
+
+    def set_salaire(self, new_salaire):
+        self._salaire = new_salaire
+
+   def __str__(self):
+        return f'Name is : {self._name}\n age : {self._age}\nsalary is: {self._salaire}'
+
+
+   def __eq__(self,K):
+       return self._age == K._age and self._salaire == E._salaire
+
+
+Eleve1 = Eleve("ahmad",19,"EO9",17)
+print(Eleve1)
+Eleve2 = Eleve("eleve2",19,"I2",17)
+print(Eleve2)
+print(Eleve1 == Eleve2)
+
